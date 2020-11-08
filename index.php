@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <title> US Geography Quiz </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -117,15 +118,14 @@
             })//ready
         </script>
     </head>
-    <body class="text-center">
+    <body class="text-center" style="background-color:#778899;">
         <h1 class="jumbotron"> US Geography Quiz </h1>
         
         <h3><span id="markImg1"></span> What is the capital of California?</h3>
         <input type="text" id="q1">
-        <br>
-        <div id="q1Feedback"></div>
         <br><br>
-        
+        <div id="q1Feedback"></div>
+        <br>
         <h3><span id="markImg2"></span>What is the longest river?</h3>
         <select id="q2">
             <option value="">Select One</option>
@@ -136,31 +136,26 @@
         </select>
         <br><br>
         <div id="q2Feedback"></div>
-        <br><br>
-        
-        <h3><span id="markImg3"></span>What president are carved into mount Rushmore?</h3>
+        <br>
+        <h3><span id="markImg3"></span>What presidents are carved into mount Rushmore?</h3>
         <input type="checkbox" id="Jackson"> <label for="Jackson"> A.Jackson      </label>
         <input type="checkbox" id="Franklin"> <label for="Franklin">B.Franklin    </label>
         <input type="checkbox" id="Jefferson"> <label for="Jefferson">T. Jefferson</label>
         <input type="checkbox" id="Roosevelt"> <label for="Roosevelt">T. Roosevelt</label>
         <br><br>
         <div id="q3Feedback"></div>
-        <br><br>
-        
+        <br>
         <h3><span id="markImg4"></span>What is the smallest US State?</h3>
         <div id="q4Choices"></div>
         <div id="q4Feedback"></div>
-        <br><br>
-        
+        <br>
         <h3><span id="markImg5"> What image is in the Great Seal of the State of California?</span></h3>
         <img src="img/seal1.png" alt="Seal 1" class="q5Choice" id="seal1"></img>
         <img src="img/seal2.png" alt="Seal 2" class="q5Choice" id="seal2"></img>
         <img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3"></img>
         <div id="q5Feedback"></div>
-        <br><br>
-        
-        
-        
+        <br>
+        <h3><span id="markImg6"> </span></h3>
         
         <h3 id="validationFdbk" class="bg-danger text-white"></h3>
         <button class="btn btn-outline-success"> Submit Quiz </button>
@@ -169,7 +164,6 @@
         
         <h3 id="totalAttempts"></h3>
         
-        //Footer
         <footer>
             <hr>
             CST336 Internet Programming. 2020&copy; Cruz <br />
@@ -177,7 +171,7 @@
             It is used for academic purposes only.
             
             <figure>
-                <img src="img/CSUMB Logo White.png" alt="CSUMB Logo" class="footer-logo" />
+                <img src="img/CSUMB Logo White.png" alt="CSUMB Logo" class="footer-logo"  />
             </figure>
         </footer>
         
