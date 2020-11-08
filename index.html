@@ -123,7 +123,7 @@
                         wrongAnswer(5);
                     }
                     //Question 6
-                    if(q6Response == "sc"){
+                    if(q6Response == "ga"){
                         rightAnswer(6);
                     }else{
                         wrongAnswer(6);
@@ -208,7 +208,7 @@
             <otion value="ca">California</otion>
             <option value="hi">Hawaii</option>
             <option value="az">Arizona</option>
-            <option value="sc">South Carolina</option>
+            <option value="sc">Georgia</option>
         </select>
         <br><br>
         <div id="q6Feedback"></div>
