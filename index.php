@@ -169,6 +169,17 @@
         
         <h3 id="totalAttempts"></h3>
         
+        //Footer
+        <footer>
+            <hr>
+            CST336 Internet Programming. 2020&copy; Cruz <br />
+            <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
+            It is used for academic purposes only.
+            
+            <figure>
+                <img src="img/CSUMB Logo White.png" alt="CSUMB Logo" class="footer-logo" />
+            </figure>
+        </footer>
         
     </body>
 </html>
