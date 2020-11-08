@@ -45,12 +45,13 @@
                 }//displayQ4Choices
                 
                 function displayQ9Choices(){
-                    let q9ChoicesArray = ["California", "Texas", "Hawaii", "Alaska"];
+                    let q9ChoicesArray = ["California", "Alaska", "Hawaii", "Texas"];
                     q9ChoicesArray = _.shuffle(q9ChoicesArray);
-                    for (let i=0;i<q9ChoicesArray.length;i++){
-                         $("#q9Choices").append(`<input type="radio" name="q9" id="${q9ChoicesArray[i]}" value="${q9ChoicesArray[i]}"> <label for ="${q9ChoicesArray[i]}"> ${q9ChoicesArray[i]}</label>`);
+                    for (let i=0; i < q9ChoicesArray.length; i++) {
+                        $("#q9Choices").append(`<input type="radio" name="q9" id="${q9ChoicesArray[i]}" value="${q9ChoicesArray[i]}"> <label for ="${q9ChoicesArray[i]}"> ${q9ChoicesArray[i]}</label>`);
                     }
-                }
+                }//displayQ9Choices
+                
                 //functions
                 function isFormValid(){
                     let isValid = true;
@@ -88,8 +89,10 @@
                     let q2Response = $("#q2").val();
                     let q4Response = $("input[name=q4]:checked").val();
                     let q6Response = $("#q6").val();
-                    let q8Response = ("#q8").val().toLowerCase();
+                    let q8Response = $("#q8").val().toLowerCase();
                     let q9Response = $("input[name=q9]:checked").val();
+                    
+                    //Lab Questions
                     
                     //Question 1
                     if(q1Response == "sacramento"){
@@ -97,7 +100,6 @@
                     }else{
                         wrongAnswer(1);
                     }
-                    
                     //Question 2
                     if(q2Response == "mo"){
                         rightAnswer(2);
@@ -122,30 +124,38 @@
                     }else{
                         wrongAnswer(5);
                     }
+                    
+                    //Continued Questions
+                    
                     //Question 6
                     if(q6Response == "ga"){
                         rightAnswer(6);
                     }else{
                         wrongAnswer(6);
                     }
+                    
                     //Question 7
                     if ($("#hibiscus").is(":checked") && !$("#plumeria").is(":checked") && !$("#goldenpoppy").is(":checked") && !$("rose").is(":checked")) {
                         rightAnswer(7);
                     }else{
-                        wrongAnswer(7)
+                        wrongAnswer(7);
                     }
+                    
                     //Question 8
-                    if(q8Response == "obama" || "barack obama" || "barack"){
+                    if(q8Response == "obama" || q8Response == "barack obama" || q8Response == "barack"){
                         rightAnswer(8);
                     }else{
                         wrongAnswer(8);
                     }
-                    //Question 9
+                    
+                
+                     //Question 9
                     if(q9Response == "Alaska"){
                         rightAnswer(9);
                     }else{
                         wrongAnswer(9);
                     }
+                    
                     //Question 10
                     if($("#img2").css("background-color") == "rgb(255, 255, 0)") {
                         rightAnswer(10);
@@ -153,16 +163,18 @@
                         wrongAnswer(10);
                     }
                     
-                    //Display the total score message depending on score
-                    if (score >= 80){
-                        $("#totalScore").attr("class", "text-success").html(`Congratulations! Your total score is ${score}`);
+                    $("#totalScore").html(`Total Score: ${score}`);
+                    //Determin appropriate message
+                    if(score >= 80){
+                        $("#totalScore").attr("class", "text-success").html(`Congratulations! Your score is ${score} ! `);
                     }else{
-                        $("#totalScore").attr("class", "text-danger").html(`Uh Oh! Your total score is ${score}`);
+                        $("#totalScore").attr("class", "text-danger").html(`Bummer! Your score is ${score} :(`);
                     }
-                }
+                
                     $("#totalAttempts").html(`Total Attempts: ${++attempts}`);
                     localStorage.setItem("total_attempts",attempts);
-            })//ready
+                }
+            });//ready
         </script>
     </head>
     <body class="text-center" style="background-color:#778899;">
@@ -173,6 +185,7 @@
         <br><br>
         <div id="q1Feedback"></div>
         <br>
+        
         <h3><span id="markImg2"></span>What is the longest river?</h3>
         <select id="q2">
             <option value="">Select One</option>
@@ -184,6 +197,7 @@
         <br><br>
         <div id="q2Feedback"></div>
         <br>
+        
         <h3><span id="markImg3"></span>What presidents are carved into mount Rushmore?</h3>
         <input type="checkbox" id="Jackson"> <label for="Jackson"> A.Jackson      </label>
         <input type="checkbox" id="Franklin"> <label for="Franklin">B.Franklin    </label>
@@ -192,27 +206,31 @@
         <br><br>
         <div id="q3Feedback"></div>
         <br>
+        
         <h3><span id="markImg4"></span>What is the smallest US State?</h3>
         <div id="q4Choices"></div>
         <div id="q4Feedback"></div>
         <br>
+        
         <h3><span id="markImg5"> What image is in the Great Seal of the State of California?</span></h3>
         <img src="img/seal1.png" alt="Seal 1" class="q5Choice" id="seal1"></img>
         <img src="img/seal2.png" alt="Seal 2" class="q5Choice" id="seal2"></img>
         <img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3"></img>
         <div id="q5Feedback"></div>
         <br>
+        
         <h3><span id="markImg6"></span> Which of these states border Florida?</h3>
         <select id="q6">
             <option value="">Select One</option>
             <otion value="ca">California</otion>
             <option value="hi">Hawaii</option>
             <option value="az">Arizona</option>
-            <option value="sc">Georgia</option>
+            <option value="ga">Georgia</option>
         </select>
         <br><br>
         <div id="q6Feedback"></div>
         <br>
+        
         <h3><span id="markImg7"></span> What is Hawaii's state flower?</h3>
         <input type="checkbox" id="rose"> <label for="rose">Rose                       </label>
         <input type="checkbox" id="plumeria"> <label for="plumeria">Plumeria           </label>
@@ -221,26 +239,30 @@
         <br><br>
         <div id="q7Feedback"></div>
         <br>
+        
         <h3><span id="markImg8"></span> Who was the 44th President of the United States?</h3>
         <input type="text" id="q8">
         <br><br>
         <div id="q8Feedback"></div>
         <br>
+        
         <h3><span id="markImg9"></span> What is the largest US state?</h3>
         <div id="q9Choices"></div>
         <div id="q9Feedback"></div>
         <br>
+        
         <h3><span id="markImg10"> What image shows the 46th President of the United States?</span></h3>
         <img src="img/donald_trump.jpg" alt="dtrump" class="q10Choice" id="img1"></img>
         <img src="img/joe_biden.jpg" alt="jbiden" class="q10Choice" id="img2"></img>
         <img src="img/kamala_harris.jpg" alt="kharris" class="q10Choice" id="img3"></img>
         <div id="q10Feedback"></div>
         <br>
+        
+
         <h3 id="validationFdbk" class="bg-danger text-white"></h3>
         <button class="btn btn-outline-success"> Submit Quiz </button>
         <br>
         <h2 id="totalScore" class="text-info"></h2>
-        
         <h3 id="totalAttempts"></h3>
         
         <footer>
