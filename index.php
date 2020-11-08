@@ -202,12 +202,12 @@
         <img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3"></img>
         <div id="q5Feedback"></div>
         <br>
-        <h3><span id="markImg6"></span> Which of these states does NOT border Florida?</h3>
+        <h3><span id="markImg6"></span> Which of these states border Florida?</h3>
         <select id="q6">
             <option value="">Select One</option>
             <otion value="ca">California</otion>
             <option value="hi">Hawaii</option>
-            <option value="az">Arizaon</option>
+            <option value="az">Arizona</option>
             <option value="sc">South Carolina</option>
         </select>
         <br><br>
