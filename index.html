@@ -2,7 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <title> US Geography Quiz </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -28,7 +27,14 @@
                    $(this).css("background","rgb(255, 255, 0)");
                 });
                 
+                //Questoin 10 images
+                $(".q10Choice").on("click", function(){
+                   $(".q10Choices").css("background","");
+                   $(this).css("background","rgb(255, 255, 0)");
+                });
+                
                 displayQ4Choices();
+                displayQ9Choices();
                 
                 function displayQ4Choices(){
                     let q4ChoicesArray = ["Maine", "Rhode Island", "Maryland", "Delaware"];
@@ -38,6 +44,13 @@
                     }
                 }//displayQ4Choices
                 
+                function displayQ9Choices(){
+                    let q9ChoicesArray = ["California", "Texas", "Hawaii", "Alaska"];
+                    q9ChoicesArray = _.shuffle(q9ChoicesArray);
+                    for (let i=0;i<q9ChoicesArray.length;i++){
+                         $("#q9Choices").append(`<input type="radio" name="q9" id="${q9ChoicesArray[i]}" value="${q9ChoicesArray[i]}"> <label for ="${q9ChoicesArray[i]}"> ${q9ChoicesArray[i]}</label>`);
+                    }
+                }
                 //functions
                 function isFormValid(){
                     let isValid = true;
@@ -74,6 +87,9 @@
                     let q1Response = $("#q1").val().toLowerCase();
                     let q2Response = $("#q2").val();
                     let q4Response = $("input[name=q4]:checked").val();
+                    let q6Response = $("#q6").val();
+                    let q8Response = ("#q8").val().toLowerCase();
+                    let q9Response = $("input[name=q9]:checked").val();
                     
                     //Question 1
                     if(q1Response == "sacramento"){
@@ -106,6 +122,37 @@
                     }else{
                         wrongAnswer(5);
                     }
+                    //Question 6
+                    if(q6Response == "sc"){
+                        rightAnswer(6);
+                    }else{
+                        wrongAnswer(6);
+                    }
+                    //Question 7
+                    if ($("#hibiscus").is(":checked") && !$("#plumeria").is(":checked") && !$("#goldenpoppy").is(":checked") && !$("rose").is(":checked")) {
+                        rightAnswer(7);
+                    }else{
+                        wrongAnswer(7)
+                    }
+                    //Question 8
+                    if(q8Response == "obama" || "barack obama" || "barack"){
+                        rightAnswer(8);
+                    }else{
+                        wrongAnswer(8);
+                    }
+                    //Question 9
+                    if(q9Response == "Alaska"){
+                        rightAnswer(9);
+                    }else{
+                        wrongAnswer(9);
+                    }
+                    //Question 10
+                    if($("#img2").css("background-color") == "rgb(255, 255, 0)") {
+                        rightAnswer(10);
+                    }else{
+                        wrongAnswer(10);
+                    }
+                    
                     //Display the total score message depending on score
                     if (score >= 80){
                         $("#totalScore").attr("class", "text-success").html(`Congratulations! Your total score is ${score}`);
@@ -155,8 +202,40 @@
         <img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3"></img>
         <div id="q5Feedback"></div>
         <br>
-        <h3><span id="markImg6"> </span></h3>
-        
+        <h3><span id="markImg6"></span> Which of these states does NOT border Florida?</h3>
+        <select id="q6">
+            <option value="">Select One</option>
+            <otion value="ca">California</otion>
+            <option value="hi">Hawaii</option>
+            <option value="az">Arizaon</option>
+            <option value="sc">South Carolina</option>
+        </select>
+        <br><br>
+        <div id="q6Feedback"></div>
+        <br>
+        <h3><span id="markImg7"></span> What is Hawaii's state flower?</h3>
+        <input type="checkbox" id="rose"> <label for="rose">Rose                       </label>
+        <input type="checkbox" id="plumeria"> <label for="plumeria">Plumeria           </label>
+        <input type="checkbox" id="hibiscus"> <label for="hibiscus">Hibiscus           </label>
+        <input type="checkbox" id="goldenpoppy"> <label for="goldenpoppy">Golden Poppy </label>
+        <br><br>
+        <div id="q7Feedback"></div>
+        <br>
+        <h3><span id="markImg8"></span> Who was the 44th President of the United States?</h3>
+        <input type="text" id="q8">
+        <br><br>
+        <div id="q8Feedback"></div>
+        <br>
+        <h3><span id="markImg9"></span> What is the largest US state?</h3>
+        <div id="q9Choices"></div>
+        <div id="q9Feedback"></div>
+        <br>
+        <h3><span id="markImg10"> What image shows the 46th President of the United States?</span></h3>
+        <img src="img/donald_trump.jpg" alt="dtrump" class="q10Choice" id="img1"></img>
+        <img src="img/joe_biden.jpg" alt="jbiden" class="q10Choice" id="img2"></img>
+        <img src="img/kamala_harris.jpg" alt="kharris" class="q10Choice" id="img3"></img>
+        <div id="q10Feedback"></div>
+        <br>
         <h3 id="validationFdbk" class="bg-danger text-white"></h3>
         <button class="btn btn-outline-success"> Submit Quiz </button>
         <br>
@@ -171,7 +250,7 @@
             It is used for academic purposes only.
             
             <figure>
-                <img src="img/CSUMB Logo White.png" alt="CSUMB Logo" class="footer-logo"  />
+                <img src="img/CSUMB Logo White.png" alt="CSUMB Logo" style="width:50%"  />
             </figure>
         </footer>
         
